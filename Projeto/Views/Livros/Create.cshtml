@@ -1,0 +1,38 @@
+﻿@model Livros.Models.LivrosModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Compartilhe!</h1>
+
+<h4 class="text-center">Conte-nos os seus livros favoritos</h4>
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group py-2">
+                <label asp-for="TituloLivro" class="control-label text-white py-2">Titulo:</label>
+                <input asp-for="TituloLivro" class="form-control"/>
+                <span asp-validation-for="TituloLivro" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="AnoPublicacaoLivro" class="control-label text-white py-2">Data Publicação:</label>
+                <input asp-for="AnoPublicacaoLivro" class="form-control" />
+                <span asp-validation-for="AnoPublicacaoLivro" class="text-danger"></span>
+            </div>
+            <div class="d-grid gap-2">
+                <input type="submit" value="Criar" class="btn btn-outline-primary" />
+                <a asp-action="Index" class="btn btn-outline-danger">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

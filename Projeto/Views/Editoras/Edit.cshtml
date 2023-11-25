@@ -1,0 +1,36 @@
+﻿@model Livros.Models.EditorasModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Editar</h1>
+
+<div class="row d-flex justify-content-center text-white">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdEditora" />
+            <div class="form-group">
+                <label asp-for="NomeEditora" class="control-label py-2">Nome Editora:</label>
+                <input asp-for="NomeEditora" class="form-control" />
+                <span asp-validation-for="NomeEditora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalizacaoEditora" class="control-label py-2">Localizacao Editora:</label>
+                <input asp-for="LocalizacaoEditora" class="form-control" />
+                <span asp-validation-for="LocalizacaoEditora" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="d-grid gap-2">
+                <input type="submit" value="Salvar" class="btn btn-outline-primary" />
+                <a asp-action="Index" class="btn btn-outline-danger">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
